@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioServicio — Análisis Satelital Agropecuario</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0b1120;color:#e2e8f0;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);padding:4rem 1.5rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)}
+.hero h1{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.5rem}
+.hero p{color:#94a3b8;font-size:1.1rem;max-width:650px;margin:0 auto 1.5rem}
+.hero .badge{display:inline-block;background:rgba(245,158,11,0.15);color:#fbbf24;padding:0.3rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}
+.cta{display:inline-block;background:#3b82f6;color:#fff;padding:0.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1.05rem;transition:all 0.2s}
+.cta:hover{background:#2563eb;transform:translateY(-1px)}
+.cta-wa{display:inline-block;background:#25D366;color:#fff;padding:0.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1.05rem;margin-left:0.75rem;transition:all 0.2s}
+.cta-wa:hover{background:#1da851;transform:translateY(-1px)}
+.cta-sec{display:inline-block;background:rgba(255,255,255,0.08);color:#e2e8f0;padding:0.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1.05rem;margin-left:0.75rem;border:1px solid rgba(255,255,255,0.12);transition:all 0.2s}
+.cta-sec:hover{background:rgba(255,255,255,0.12);transform:translateY(-1px)}
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+section{padding:3.5rem 0}
+section:nth-child(even){background:rgba(255,255,255,0.015)}
+h2{font-size:1.7rem;font-weight:700;margin-bottom:0.75rem;color:#f1f5f9}
+h2 span{color:#60a5fa}
+.desc{color:#94a3b8;font-size:0.95rem;margin-bottom:2rem;max-width:650px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:1.5rem;transition:all 0.2s}
+.card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.card .icon{font-size:2rem;margin-bottom:0.75rem}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.4rem;color:#f1f5f9}
+.card p{font-size:0.85rem;color:#94a3b8}
+.tabs{display:flex;gap:0;margin-bottom:2rem;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);max-width:500px;margin-left:auto;margin-right:auto}
+.tab{flex:1;padding:0.75rem 1rem;text-align:center;cursor:pointer;background:rgba(255,255,255,0.03);color:#94a3b8;font-weight:600;font-size:0.9rem;transition:all 0.2s;border:none}
+.tab.active{background:#3b82f6;color:#fff}
+.tab:not(.active):hover{background:rgba(255,255,255,0.06)}
+.product-grid{display:none;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.product-grid.active{display:grid}
+.feature-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.feature-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.75rem;background:rgba(255,255,255,0.02);border-radius:10px}
+.feature-item .check{color:#10b981;font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.tech-stack{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:1.5rem}
+.tech{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:0.4rem 1rem;font-size:0.8rem;color:#cbd5e1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.step{text-align:center;padding:1.5rem;background:rgba(255,255,255,0.02);border-radius:12px}
+.step .num{width:36px;height:36px;line-height:36px;border-radius:50%;background:#3b82f6;color:#fff;font-weight:700;font-size:0.9rem;margin:0 auto 0.75rem}
+.step h4{font-size:0.95rem;font-weight:600;margin-bottom:0.3rem;color:#f1f5f9}
+.step p{font-size:0.8rem;color:#94a3b8}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1050px;margin:0 auto}
+.price-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:2rem 1.5rem;text-align:center}
+.price-card.highlight{border-color:#3b82f6;background:rgba(59,130,246,0.05)}
+.price-card .amount{font-size:2rem;font-weight:800;color:#f1f5f9;margin:0.5rem 0}
+.price-card .label{font-size:0.85rem;color:#94a3b8;margin-bottom:1rem}
+.price-card ul{list-style:none;font-size:0.85rem;color:#cbd5e1;text-align:left;margin-bottom:1.5rem}
+.price-card ul li{padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.price-card ul li::before{content:"✓ ";color:#10b981;font-weight:700}
+.cta-mp{display:inline-block;background:#009ee3;color:#fff;padding:0.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1.05rem;transition:all 0.2s}
+.cta-mp:hover{background:#007ac1;transform:translateY(-1px)}
+.footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);color:#64748b;font-size:0.85rem}
+.service-selector{margin-bottom:2.5rem;text-align:center}
+.service-btn{display:inline-block;padding:0.6rem 1.8rem;margin:0.25rem;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.2s}
+.service-btn.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.service-btn:not(.active):hover{background:rgba(255,255,255,0.06)}
+.service-content{display:none}
+.service-content.active{display:block}
+@media(max-width:600px){.hero h1{font-size:1.7rem}.cta-sec,.cta-wa{margin-left:0;margin-top:0.5rem;display:inline-block}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🌱 Demo gratuita — 2 análisis</div>
+  <h1>🌾 BioServicio</h1>
+  <p>Análisis satelital con inteligencia artificial para agricultura y ganadería.<br>Subí tu lote y obtené diagnósticos profesionales en segundos.</p>
+  <a class="cta" href="javascript:void(0)" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">🚀 Ver productos</a>
+  <a class="cta-wa" href="https://wa.me/5493525532313" target="_blank">📱 Consultar</a>
+</div>
+
+<div class="container">
+
+<!-- Selector de producto -->
+<section id="productos">
+  <h2 style="text-align:center"><span>🔬</span> Elegí tu análisis</h2>
+  <p class="desc" style="text-align:center;margin:0 auto 2rem">Seleccioná el tipo de diagnóstico que necesitás para tu campo:</p>
+  <div class="service-selector">
+    <button class="service-btn active" onclick="showService('agricola',this)">🌾 Diagnóstico Agrícola</button>
+    <button class="service-btn" onclick="showService('forrajero',this)">🐄 Análisis Forrajero + PRV</button>
+  </div>
+
+  <!-- Diagnóstico Agrícola -->
+  <div id="service-agricola" class="service-content active">
+    <div class="grid">
+      <div class="card"><div class="icon">🧪</div><h3>Fertilidad</h3><p>N, P, K, MO, pH, CIC. Mapas interpolados con KNN y cuadrícula de muestreo virtual.</p></div>
+      <div class="card"><div class="icon">🛰️</div><h3>NDVI + NDRE</h3><p>Índices de vegetación satelital. Vigor, clorofila y estrés con datos Sentinel-2.</p></div>
+      <div class="card"><div class="icon">💧</div><h3>Riesgo Hídrico</h3><p>Estrés hídrico por zona, balance estimado, disponibilidad según textura del suelo.</p></div>
+      <div class="card"><div class="icon">💰</div><h3>Costos</h3><p>Costos variables por lote, proyecciones de retorno económico y escenarios.</p></div>
+      <div class="card"><div class="icon">🌿</div><h3>Agricultura Regenerativa</h3><p>Plan de transición personalizado: cobertura, rotación, fertilización orgánica.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>Asistente IA</h3><p>Chat con LLaMA 3.3 70B. Respondé preguntas sobre tu análisis en lenguaje natural.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <a class="cta" href="https://martincano-analisis-agricola.hf.space" target="_blank">🚀 Probar demo agrícola</a>
+    </div>
+  </div>
+
+  <!-- Análisis Forrajero + PRV -->
+  <div id="service-forrajero" class="service-content">
+    <div class="grid">
+      <div class="card"><div class="icon">🌳</div><h3>Carbono & CO₂</h3><p>Metodología Verra VCS. Carbono almacenado y potencial de créditos de carbono.</p></div>
+      <div class="card"><div class="icon">🦋</div><h3>Biodiversidad</h3><p>Índice de Shannon satelital. Mapas de calor interpolados con KNN.</p></div>
+      <div class="card"><div class="icon">📈</div><h3>Índices espectrales</h3><p>NDVI, NDWI, NDRE, MSAVI, EVI. Mapas continuos con interpolación por cuadrícula.</p></div>
+      <div class="card"><div class="icon">🐮</div><h3>Análisis Forrajero</h3><p>Productividad (kg MS/ha), disponibilidad total, carga animal recomendada.</p></div>
+      <div class="card"><div class="icon">🐄</div><h3>Pastoreo Racional Voisin</h3><p>Potreros por productividad, plan de pastoreo, calendario de rotación.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>Informes con IA</h3><p>PDF, DOCX, GeoJSON. Informes ejecutivos generados con Groq (LLaMA, Qwen, DeepSeek).</p></div>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <a class="cta" href="https://martincano-analisis-forrajero-prv.hf.space" target="_blank">🚀 Probar demo forrajero</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span>⚡</span> Cómo funciona</h2>
+  <p class="desc">Tres pasos simples para cualquier tipo de análisis:</p>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4>Subí tu polígono</h4><p>KML, KMZ, GeoJSON o Shapefile (ZIP). Cualquier lote, parcela o potrero.</p></div>
+    <div class="step"><div class="num">2</div><h4>Ejecutá el análisis</h4><p>Seleccioná los módulos y obtené mapas, gráficos y tablas con datos satelitales reales.</p></div>
+    <div class="step"><div class="num">3</div><h4>Interpretá con IA</h4><p>Chat con IA para entender los resultados. Descargá informes profesionales.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span>🗺️</span> Mapas disponibles</h2>
+  <div class="feature-list">
+    <div class="feature-item"><span class="check">✓</span><div><strong>Mapa base interactivo</strong><br><span style="color:#94a3b8;font-size:0.82rem">Polígono con capas satelitales, fullscreen y coordenadas</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Fertilidad (Agrícola)</strong><br><span style="color:#94a3b8;font-size:0.82rem">N, P, K, MO, pH, CIC interpolados con leyenda</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>NDVI / NDRE / NDWI / MSAVI / EVI</strong><br><span style="color:#94a3b8;font-size:0.82rem">Espectrales satelitales con tooltips y cuadrícula continua</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Carbono y Biodiversidad</strong><br><span style="color:#94a3b8;font-size:0.82rem">Cuadrícula coroplética con estimación Verra VCS e Índice Shannon</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Forrajero + PRV</strong><br><span style="color:#94a3b8;font-size:0.82rem">Productividad por sublotes, potreros por estado (pastoreo/descanso)</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Riesgo hídrico</strong><br><span style="color:#94a3b8;font-size:0.82rem">Estrés por zona, balance hídrico, disponibilidad según textura</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span>💻</span> Tecnología</h2>
+  <div class="tech-stack">
+    <span class="tech">Streamlit</span>
+    <span class="tech">Python</span>
+    <span class="tech">Google Earth Engine</span>
+    <span class="tech">Folium + Leaflet</span>
+    <span class="tech">KNN (scikit-learn)</span>
+    <span class="tech">GeoPandas</span>
+    <span class="tech">Rasterio</span>
+    <span class="tech">Plotly</span>
+    <span class="tech">Groq (LLaMA 3.3 70B)</span>
+    <span class="tech">Docker</span>
+    <span class="tech">Hugging Face Spaces</span>
+    <span class="tech">Qwen / DeepSeek</span>
+    <span class="tech">YOLO (detección)</span>
+    <span class="tech">OpenTopography</span>
+  </div>
+</section>
+
+<section>
+  <h2><span>💰</span> Planes</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>🎯 Demo</h3>
+      <div class="amount">Gratis</div>
+      <div class="label">2 análisis</div>
+      <ul>
+        <li>Válido para ambos productos</li>
+        <li>Todos los módulos habilitados</li>
+        <li>Mapas y gráficos completos</li>
+        <li>Chat con IA incluido</li>
+      </ul>
+      <a class="cta" href="https://martincano-analisis-agricola.hf.space" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem">Probar demo</a>
+    </div>
+    <div class="price-card highlight">
+      <h3>📋 Completo</h3>
+      <div class="amount">A consultar</div>
+      <div class="label">Análisis personalizado + informe</div>
+      <ul>
+        <li>Sin límite de análisis</li>
+        <li>Informe ejecutivo con IA</li>
+        <li>Plan de transisión regenerativa</li>
+        <li>Asesoría personalizada</li>
+      </ul>
+      <a class="cta-wa" href="https://wa.me/5493525532313" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem">Consultar</a>
+    </div>
+    <div class="price-card">
+      <h3>🔓 Créditos</h3>
+      <div class="amount">Desde $X</div>
+      <div class="label">Por análisis adicional</div>
+      <ul>
+        <li>Activás al instante</li>
+        <li>Sin límite de tiempo</li>
+        <li>Acceso a todos los módulos</li>
+        <li>Sin renovación automática</li>
+      </ul>
+      <a class="cta-mp" href="https://mpago.la/1AahHK6" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem;display:inline-block">💳 Comprar</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  <p style="margin-bottom:0.5rem">🌾 BioServicio — Análisis Satelital Agropecuario</p>
+  <p>📱 <a href="https://wa.me/5493525532313" style="color:#60a5fa;text-decoration:none">+54 9 3525 532313</a> &nbsp;·&nbsp; 💳 <a href="https://mpago.la/1AahHK6" style="color:#60a5fa;text-decoration:none">Mercado Pago</a></p>
+  <p style="margin-top:0.5rem;font-size:0.75rem">© 2026 — Martín Cano</p>
+</div>
+
+<script>
+function showService(name, btn) {
+  document.querySelectorAll('.service-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.service-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('service-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
