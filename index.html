@@ -162,7 +162,7 @@ h2{font-size:1.4rem}
 <body>
 
 <div class="hero">
-  <div class="badge">🌱 Demo gratuita — 2 análisis</div>
+  <div class="badge">🌱 Demo gratuita — 2 análisis + recarga (3) o ilimitado para usuarios whitelist</div>
   <h1>🌾 BioServicio</h1>
   <p>Análisis satelital con inteligencia artificial para agricultura y ganadería.<br>Subí tu lote y obtené diagnósticos profesionales en segundos.</p>
   <a class="cta" href="javascript:void(0)" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">🚀 Ver productos</a>
@@ -184,11 +184,11 @@ h2{font-size:1.4rem}
   <div id="service-agricola" class="service-content active">
     <div class="grid">
       <div class="card"><div class="icon">🧪</div><h3>Fertilidad</h3><p>N, P, K, MO, pH, CIC. Mapas interpolados con KNN y cuadrícula de muestreo virtual.</p></div>
-      <div class="card"><div class="icon">🛰️</div><h3>NDVI + NDRE</h3><p>Índices de vegetación satelital. Vigor, clorofila y estrés con datos Sentinel-2.</p></div>
+      <div class="card"><div class="icon">🛰️</div><h3>NDVI + NDRE</h3><p>Índices de vegetación satelital. Vigor, clorofila y estrés con datos Sentinel-2 sobre mapa satelital Esri World Imagery.</p></div>
       <div class="card"><div class="icon">💧</div><h3>Riesgo Hídrico</h3><p>Estrés hídrico por zona, balance estimado, disponibilidad según textura del suelo.</p></div>
       <div class="card"><div class="icon">💰</div><h3>Costos</h3><p>Costos variables por lote, proyecciones de retorno económico y escenarios.</p></div>
       <div class="card"><div class="icon">🌿</div><h3>Agricultura Regenerativa</h3><p>Plan de transición personalizado: cobertura, rotación, fertilización orgánica.</p></div>
-      <div class="card"><div class="icon">🤖</div><h3>Asistente IA</h3><p>Chat con LLaMA 3.3 70B. Respondé preguntas sobre tu análisis en lenguaje natural.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>Asistente IA</h3><p>Chat con openai/gpt-oss-120b. Respondé preguntas sobre tu análisis en lenguaje natural.</p></div>
     </div>
     <div style="text-align:center;margin-top:1.5rem">
       <a class="cta" href="https://martincano-analisis-agricola.hf.space" target="_blank">🚀 Probar demo agrícola</a>
@@ -201,9 +201,9 @@ h2{font-size:1.4rem}
       <div class="card"><div class="icon">🌳</div><h3>Carbono & CO₂</h3><p>Metodología Verra VCS. Carbono almacenado y potencial de créditos de carbono.</p></div>
       <div class="card"><div class="icon">🦋</div><h3>Biodiversidad</h3><p>Índice de Shannon satelital. Mapas de calor interpolados con KNN.</p></div>
       <div class="card"><div class="icon">📈</div><h3>Índices espectrales</h3><p>NDVI, NDWI, NDRE, MSAVI, EVI. Mapas continuos con interpolación por cuadrícula.</p></div>
-      <div class="card"><div class="icon">🐮</div><h3>Análisis Forrajero</h3><p>Productividad (kg MS/ha), disponibilidad total, carga animal recomendada.</p></div>
+      <div class="card"><div class="icon">🐮</div><h3>Análisis Forrajero</h3><p>Productividad (kg MS/ha) por punto de muestreo virtual, disponibilidad total con promedio ponderado, carga animal recomendada.</p></div>
       <div class="card"><div class="icon">🐄</div><h3>Pastoreo Racional Voisin</h3><p>Potreros por productividad, plan de pastoreo, calendario de rotación.</p></div>
-      <div class="card"><div class="icon">🤖</div><h3>Informes con IA</h3><p>PDF, DOCX, GeoJSON. Informes ejecutivos generados con Groq (LLaMA, Qwen, DeepSeek).</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>Informes con IA</h3><p>PDF, DOCX, GeoJSON. Informes ejecutivos generados con Groq (GPT-OSS 120B, Qwen3.6-27B, DeepSeek).</p></div>
     </div>
     <div style="text-align:center;margin-top:1.5rem">
       <a class="cta" href="https://martincano-analisis-forrajero-prv.hf.space" target="_blank">🚀 Probar demo forrajero</a>
@@ -224,12 +224,13 @@ h2{font-size:1.4rem}
 <section>
   <h2><span>🗺️</span> Mapas disponibles</h2>
   <div class="feature-list">
-    <div class="feature-item"><span class="check">✓</span><div><strong>Mapa base interactivo</strong><br><span style="color:#94a3b8;font-size:0.82rem">Polígono con capas satelitales, fullscreen y coordenadas</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Mapa base interactivo</strong><br><span style="color:#94a3b8;font-size:0.82rem">Polígono con capas satelitales Esri World Imagery, fullscreen y coordenadas</span></div></div>
     <div class="feature-item"><span class="check">✓</span><div><strong>Fertilidad (Agrícola)</strong><br><span style="color:#94a3b8;font-size:0.82rem">N, P, K, MO, pH, CIC interpolados con leyenda</span></div></div>
     <div class="feature-item"><span class="check">✓</span><div><strong>NDVI / NDRE / NDWI / MSAVI / EVI</strong><br><span style="color:#94a3b8;font-size:0.82rem">Espectrales satelitales con tooltips y cuadrícula continua</span></div></div>
     <div class="feature-item"><span class="check">✓</span><div><strong>Carbono y Biodiversidad</strong><br><span style="color:#94a3b8;font-size:0.82rem">Cuadrícula coroplética con estimación Verra VCS e Índice Shannon</span></div></div>
     <div class="feature-item"><span class="check">✓</span><div><strong>Forrajero + PRV</strong><br><span style="color:#94a3b8;font-size:0.82rem">Productividad por sublotes, potreros por estado (pastoreo/descanso)</span></div></div>
     <div class="feature-item"><span class="check">✓</span><div><strong>Riesgo hídrico</strong><br><span style="color:#94a3b8;font-size:0.82rem">Estrés por zona, balance hídrico, disponibilidad según textura</span></div></div>
+    <div class="feature-item"><span class="check">✓</span><div><strong>Fechas personalizables</strong><br><span style="color:#94a3b8;font-size:0.82rem">Seleccioná fecha inicio y fin para acotar el análisis al período deseado</span></div></div>
   </div>
 </section>
 
@@ -244,10 +245,10 @@ h2{font-size:1.4rem}
     <span class="tech">GeoPandas</span>
     <span class="tech">Rasterio</span>
     <span class="tech">Plotly</span>
-    <span class="tech">Groq (LLaMA 3.3 70B)</span>
+    <span class="tech">Groq (GPT-OSS 120B, Qwen3.6-27B)</span>
     <span class="tech">Docker</span>
     <span class="tech">Hugging Face Spaces</span>
-    <span class="tech">Qwen / DeepSeek</span>
+    <span class="tech">Esri Satellite Imagery</span>
     <span class="tech">YOLO (detección)</span>
     <span class="tech">OpenTopography</span>
   </div>
@@ -259,38 +260,40 @@ h2{font-size:1.4rem}
     <div class="price-card">
       <h3>🎯 Demo</h3>
       <div class="amount">Gratis</div>
-      <div class="label">2 análisis</div>
+      <div class="label">2 análisis gratuitos</div>
       <ul>
         <li>Válido para ambos productos</li>
         <li>Todos los módulos habilitados</li>
         <li>Mapas y gráficos completos</li>
         <li>Chat con IA incluido</li>
+        <li>Selección de fechas disponible</li>
       </ul>
       <a class="cta" href="https://martincano-analisis-agricola.hf.space" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem">Probar demo</a>
     </div>
     <div class="price-card highlight">
+      <h3>🔓 Recarga</h3>
+      <div class="amount">$220.000</div>
+      <div class="label">3 análisis totales</div>
+      <ul>
+        <li>Activás al instante tras el pago</li>
+        <li>Sin límite de tiempo para usarlos</li>
+        <li>Acceso a todos los módulos</li>
+        <li>Mapas satelitales Esri</li>
+        <li>Recargable: pagás y seguís usando</li>
+      </ul>
+      <a class="cta-mp" href="https://mpago.la/1AahHK6" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem;display:inline-block">💳 Comprar</a>
+    </div>
+    <div class="price-card">
       <h3>📋 Completo</h3>
       <div class="amount">A consultar</div>
-      <div class="label">Análisis personalizado + informe</div>
+      <div class="label">Análisis ilimitado + informe</div>
       <ul>
         <li>Sin límite de análisis</li>
         <li>Informe ejecutivo con IA</li>
-        <li>Plan de transisión regenerativa</li>
+        <li>Plan de transición regenerativa</li>
         <li>Asesoría personalizada</li>
       </ul>
       <a class="cta-wa" href="https://wa.me/5493525532313" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem">Consultar</a>
-    </div>
-    <div class="price-card">
-      <h3>🔓 Créditos</h3>
-      <div class="amount">Desde $X</div>
-      <div class="label">Por análisis adicional</div>
-      <ul>
-        <li>Activás al instante</li>
-        <li>Sin límite de tiempo</li>
-        <li>Acceso a todos los módulos</li>
-        <li>Sin renovación automática</li>
-      </ul>
-      <a class="cta-mp" href="https://mpago.la/1AahHK6" target="_blank" style="padding:0.6rem 1.5rem;font-size:0.9rem;display:inline-block">💳 Comprar</a>
     </div>
   </div>
 </section>
